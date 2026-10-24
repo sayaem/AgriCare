@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">এগ্রিকেয়ার</string>
+    <string name="app_tagline">সুস্থ ফসল, সমৃদ্ধ ফলন।</string>
+    <string name="app_subline">সুস্থ ফসল, সুখী কৃষক</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">হোম</string>
+    <string name="nav_my_crops">আমার ফসল</string>
+    <string name="nav_diagnose">রোগ নির্ণয়</string>
+    <string name="nav_history">ইতিহাস</string>
+    <string name="nav_profile">প্রোফাইল</string>
+    <string name="nav_calendar">ক্যালেন্ডার</string>
+    <string name="nav_library">ফসল সহায়িকা</string>
+    <string name="nav_notifications">বিজ্ঞপ্তি</string>
+
+    <!-- Header Actions & Common -->
+    <string name="action_back">ফিরে যান</string>
+    <string name="action_close">বন্ধ করুন</string>
+    <string name="action_search">অনুসন্ধান</string>
+    <string name="action_filter">ফিল্টার</string>
+    <string name="action_settings">সেটিংস</string>
+    <string name="action_save">সংরক্ষণ করুন</string>
+    <string name="action_cancel">বাতিল</string>
+    <string name="action_retry">পুনরায় চেষ্টা করুন</string>
+    <string name="action_view_all">সব দেখুন</string>
+    <string name="action_add">যোগ করুন</string>
+    <string name="action_edit">সম্পাদনা</string>
+    <string name="action_delete">মুছুন</string>
+    <string name="action_done">সম্পন্ন</string>
+    <string name="action_confirm">নিশ্চিত করুন</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_skip">এড়িয়ে যান</string>
+    <string name="onboarding_next">পরবর্তী</string>
+    <string name="onboarding_get_started">শুরু করুন</string>
+    <string name="onboarding_start_exploring">অ্যাপে প্রবেশ করুন</string>
+    <string name="onboarding_title_1">ফসলের রোগ চিহ্নিত করুন আগেই</string>
+    <string name="onboarding_desc_1">ক্যামেরা দিয়ে ছবি তুলুন বা গ্যালারি থেকে বাছুন। আমাদের এআই সমস্যা শনাক্ত করে সেরা সমাধান দেবে।</string>
+    <string name="onboarding_title_2">অভিজ্ঞ পরামর্শ হাতের মুঠোয়</string>
+    <string name="onboarding_desc_2">আপনার ফসলের সঠিক রোগ নির্ণয়, পরিচর্যা ও প্রতিরোধমূলক পরামর্শ সহজে পান।</string>
+    <string name="onboarding_title_3">সবুজ ও সমৃদ্ধ আগামীর জন্য</string>
+    <string name="onboarding_desc_3">কৃষক, বাগানপ্রেমী ও কৃষি শিক্ষার্থীদের সুস্থ ও অধিক উৎপাদনশীল ফসল ফলাতে সহায়ক।</string>
+
+    <!-- Home Greeting & Dashboard -->
+    <string name="greeting_morning">সুপ্রভাত,</string>
+    <string name="greeting_afternoon">শুভ অপরাহ্ন,</string>
+    <string name="greeting_evening">শুভ সন্ধ্যা,</string>
+    <string name="default_user_name">সায়েদ</string>
+    <string name="user_role_subtitle">উদ্ভিদপ্রেমী · কৃষক</string>
+    <string name="search_placeholder">ফসল, রোগ বা সমাধান খুঁজুন…</string>
+    <string name="home_section_todays_tip">আজকের পরামর্শ</string>
+    <string name="home_tip_title">বৃষ্টির পর ধানের পাতায় বাদামি দাগ রোগের প্রাথমিক লক্ষণ খেয়াল করুন।</string>
+    <string name="home_tip_source">উৎস: ব্রি (BRRI) ফিল্ড গাইড</string>
+    <string name="home_tip_dismiss">বাতিল</string>
+    <string name="home_tip_refresh">নতুন টিপ</string>
+    <string name="home_section_recent_activity">সাম্প্রতিক কার্যক্রম</string>
+    <string name="home_recent_empty_title">কোনো সাম্প্রতিক রোগ নির্ণয় নেই</string>
+    <string name="home_recent_empty_desc">লক্ষণ ও চিকিৎসা তালিকা দেখতে আক্রান্ত পাতা বা ফসলের ছবি তুলুন।</string>
+    <string name="home_action_diagnose_plant">ফসলের রোগ নির্ণয়</string>
+    <string name="home_action_camera">ক্যামেরা</string>
+    <string name="home_action_gallery">গ্যালারি</string>
+    <string name="home_shortcut_more">আরও</string>
+    <string name="home_shortcut_my_crops">আমার ফসল</string>
+    <string name="home_shortcut_calendar">ক্যালেন্ডার</string>
+    <string name="home_shortcut_library">সহায়িকা</string>
+
+    <!-- My Crops -->
+    <string name="my_crops_tab_my_crops">আমার ফসল</string>
+    <string name="my_crops_tab_all_crops">সকল ফসল</string>
+    <string name="crop_label_variety">জাত</string>
+    <string name="crop_label_planted">রোপণ</string>
+    <string name="crop_label_field">প্লট / ক্ষেতের নাম</string>
+    <string name="crop_label_notes">নোট</string>
+    <string name="crop_add_title">নতুন ফসল যোগ করুন</string>
+    <string name="crop_edit_title">ফসল সম্পাদনা করুন</string>
+    <string name="crop_name_hint">ফসলের নাম (যেমন ধান, টমেটো)</string>
+    <string name="crop_variety_hint">জাত (ঐচ্ছিক, যেমন ব্রি ধান-২৮)</string>
+    <string name="crop_field_hint">প্লট বা ক্ষেতের অবস্থান (ঐচ্ছিক)</string>
+    <string name="crop_notes_hint">রোপণের তারিখ, সার বা বিশেষ পর্যবেক্ষণ</string>
+    <string name="crop_delete_confirm_title">ফসল মুছে ফেলবেন?</string>
+    <string name="crop_delete_confirm_msg">আপনি কি নিশ্চিত? এই ফসলের সমস্ত তথ্য স্থায়ীভাবে মুছে যাবে।</string>
+    <string name="crop_archive_action">সংরক্ষণাগারে নিন</string>
+
+    <!-- Crop & Disease Library -->
+    <string name="library_search_hint">রোগ, লক্ষণ বা ফসল অনুসন্ধান করুন…</string>
+    <string name="library_filter_all">সকল</string>
+    <string name="library_section_about">বিবরণ</string>
+    <string name="library_section_symptoms">সাধারণ লক্ষণসমূহ</string>
+    <string name="library_section_lookalikes">অনুরূপ সমস্যা / সদৃশ লক্ষণ</string>
+    <string name="library_section_management">নিরাপদ ব্যবস্থাপনা</string>
+    <string name="library_section_prevention">প্রতিরোধমূলক ব্যবস্থা</string>
+    <string name="library_source_attribution">তথ্যের উৎস</string>
+    <string name="library_empty_title">কোনো সহায়িকা পাওয়া যায়নি</string>
+    <string name="library_empty_desc">অন্য কোনো ফসল বা রোগের নাম লিখে অনুসন্ধান করুন।</string>
+
+    <!-- History -->
+    <string name="history_filter_all">সকল</string>
+    <string name="history_filter_diagnoses">রোগ নির্ণয়</string>
+    <string name="history_filter_treatments">চিকিৎসা</string>
+    <string name="history_clear_all">ইতিহাস মুছুন</string>
+    <string name="history_clear_confirm_title">রোগ নির্ণয়ের সব ইতিহাস মুছবেন?</string>
+    <string name="history_clear_confirm_msg">আপনার ডিভাইসে সংরক্ষিত সব রোগ নির্ণয় স্থায়ীভাবে মুছে যাবে।</string>
+    <string name="history_details_title">রোগের বিস্তারিত</string>
+
+    <!-- Profile & Settings -->
+    <string name="settings_appearance">অ্যাপ থিম</string>
+    <string name="settings_notifications">বিজ্ঞপ্তি</string>
+    <string name="settings_data_clear">অ্যাপের সমস্ত ডেটা মুছুন</string>
+    <string name="settings_data_clear_title">সমস্ত ডেটা রিসেট করবেন?</string>
+    <string name="settings_data_clear_msg">আপনার সংরক্ষিত সকল ফসল, রোগ নির্ণয়ের ইতিহাস ও সেটিংস মুছে যাবে।</string>
+
+    <!-- Header Titles for screens -->
+    <string name="title_home">হোম</string>
+    <string name="title_my_crops">আমার গাছ ও ফসল</string>
+    <string name="title_crop_detail">ফসলের বিবরণ</string>
+    <string name="title_add_crop">নতুন ফসল যোগ করুন</string>
+    <string name="title_diagnose">গাছের রোগ নির্ণয়</string>
+    <string name="title_analysis_result">বিশ্লেষণের ফলাফল</string>
+    <string name="title_treatment_plan">চিকিৎসা পরিকল্পনা</string>
+    <string name="title_history">পূর্ববর্তী তথ্য</string>
+    <string name="title_calendar">ক্যালেন্ডার</string>
+    <string name="title_notifications">বিজ্ঞপ্তি</string>
+    <string name="title_profile">প্রোফাইল</string>
+    <string name="title_settings">সেটিংস</string>
+    <string name="title_crop_library">ফসল ও রোগের লাইব্রেরি</string>
+    <string name="title_about">এগ্রিকেয়ার সম্পর্কে</string>
+    <string name="title_privacy">গোপনীয়তা নীতি</string>
+    <string name="title_terms">ব্যবহারের শর্তাবলী</string>
+
+    <!-- Language selector -->
+    <string name="language_english">English</string>
+    <string name="language_bangla">বাংলা</string>
+    <string name="language_selection">ভাষা / Language</string>
+
+    <!-- Empty States -->
+    <string name="empty_crops_title">এখনও কোনো ফসল যোগ করা হয়নি</string>
+    <string name="empty_crops_desc">ফসলের যত্ন ও সময়সূচি রাখতে আপনার প্রথম ফসল যোগ করুন।</string>
+    <string name="empty_history_title">কোনো রোগ নির্ণয়ের ইতিহাস নেই</string>
+    <string name="empty_history_desc">পাতার রোগ, পোকা বা পুষ্টি ঘাটতি নির্ণয় করতে একটি ছবি তুলুন বা নির্বাচন করুন।</string>
+    <string name="empty_tasks_title">আজকের কোনো কাজ নেই</string>
+    <string name="empty_tasks_desc">সব কাজ সম্পন্ন! সেচ, সার প্রয়োগ বা ফসল কাটার নতুন কাজ যুক্ত করুন।</string>
+    <string name="empty_notifications_title">কোনো বিজ্ঞপ্তি নেই</string>
+    <string name="empty_notifications_desc">আপনার ফসল সম্পর্কিত সতর্কতা ও নির্ধারিত কাজের তাগিদ এখানে দেখা যাবে।</string>
+
+    <!-- Accessibility -->
+    <string name="cd_back_button">পেছনে যান</string>
+    <string name="cd_profile_avatar">ব্যবহারকারীর প্রোফাইল</string>
+    <string name="cd_notifications_bell">বিজ্ঞপ্তি দেখুন</string>
+    <string name="cd_diagnose_button">ক্যামেরা বা গ্যালারি থেকে ফসলের রোগ নির্ণয় করুন</string>
+    <string name="cd_search_action">ফসল এবং রোগ অনুসন্ধান করুন</string>
+</resources>

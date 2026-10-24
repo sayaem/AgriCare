@@ -1,0 +1,8 @@
+{
+  "name": "AgriCare",
+  "description": "Zero-budget-first Android plant health assistant for farmers and growers, featuring AI-assisted diagnosis, crop tracking, calendar tasks, and offline crop guides.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
