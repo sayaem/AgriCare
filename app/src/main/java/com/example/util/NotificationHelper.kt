@@ -53,8 +53,8 @@ object NotificationHelper {
             with(NotificationManagerCompat.from(context)) {
                 notify(taskId.hashCode(), builder.build())
             }
-        } catch (e: SecurityException) {
-            // Handle security exception if permission revoked
+        } catch (e: Exception) {
+            // Safely catch any security or runtime notification exceptions
         }
     }
 }

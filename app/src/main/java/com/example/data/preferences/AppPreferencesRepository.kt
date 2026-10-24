@@ -7,9 +7,12 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.datastore.preferences.core.emptyPreferences
 import com.example.util.AppLanguage
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
+import java.io.IOException
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "agricare_preferences")
 
@@ -33,25 +36,33 @@ class AppPreferencesRepository(private val context: Context) {
         val RETAIN_IMAGES = booleanPreferencesKey("retain_images")
     }
 
-    val userPreferencesFlow: Flow<UserPreferences> = context.dataStore.data.map { preferences ->
-        val langStr = preferences[PreferenceKeys.LANGUAGE] ?: "en"
-        val language = if (langStr == "bn") AppLanguage.BANGLA else AppLanguage.ENGLISH
-        val themeMode = preferences[PreferenceKeys.THEME_MODE] ?: "light"
-        val onboarding = preferences[PreferenceKeys.ONBOARDING_COMPLETED] ?: false
-        val notifications = preferences[PreferenceKeys.NOTIFICATIONS_ENABLED] ?: true
-        val consent = preferences[PreferenceKeys.AI_CONSENT_ACCEPTED] ?: false
-        val retainImages = preferences[PreferenceKeys.RETAIN_IMAGES] ?: true
+    val userPreferencesFlow: Flow<UserPreferences> = context.dataStore.data
+        .catch { exception ->
+            if (exception is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }
+        .map { preferences ->
+            val langStr = preferences[PreferenceKeys.LANGUAGE] ?: "en"
+            val language = if (langStr == "bn") AppLanguage.BANGLA else AppLanguage.ENGLISH
+            val themeMode = preferences[PreferenceKeys.THEME_MODE] ?: "light"
+            val onboarding = preferences[PreferenceKeys.ONBOARDING_COMPLETED] ?: false
+            val notifications = preferences[PreferenceKeys.NOTIFICATIONS_ENABLED] ?: true
+            val consent = preferences[PreferenceKeys.AI_CONSENT_ACCEPTED] ?: false
+            val retainImages = preferences[PreferenceKeys.RETAIN_IMAGES] ?: true
 
-        UserPreferences(
-            language = language,
-            themeMode = themeMode,
-            onboardingCompleted = onboarding,
-            notificationsEnabled = notifications,
-            aiConsentAccepted = consent,
-            retainImagesLocally = retainImages,
-            isLoaded = true
-        )
-    }
+            UserPreferences(
+                language = language,
+                themeMode = themeMode,
+                onboardingCompleted = onboarding,
+                notificationsEnabled = notifications,
+                aiConsentAccepted = consent,
+                retainImagesLocally = retainImages,
+                isLoaded = true
+            )
+        }
 
     suspend fun setLanguage(language: AppLanguage) {
         context.dataStore.edit { preferences ->

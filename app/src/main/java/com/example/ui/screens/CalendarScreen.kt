@@ -125,35 +125,56 @@ fun CalendarScreen(
         hasNotificationPermission = isGranted
     }
 
-    // Generate upcoming dates strip (e.g. 14 days around today)
-    val calendar = Calendar.getInstance()
-    val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-    val dayOfWeekFormat = SimpleDateFormat("EEE", Locale.getDefault())
-
+    // Generate upcoming dates strip safely
     val dateList = remember {
         val list = mutableListOf<DateItem>()
-        val cal = Calendar.getInstance()
-        cal.add(Calendar.DAY_OF_YEAR, -3)
-        for (i in 0..14) {
-            val dow = dayOfWeekFormat.format(cal.time).uppercase()
-            val dayNum = cal.get(Calendar.DAY_OF_MONTH)
-            val ds = dateFormat.format(cal.time)
-            list.add(DateItem(dow, dayNum, ds, cal.timeInMillis))
-            cal.add(Calendar.DAY_OF_YEAR, 1)
+        try {
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val dayOfWeekFormat = SimpleDateFormat("EEE", Locale.getDefault())
+            val cal = Calendar.getInstance()
+            cal.add(Calendar.DAY_OF_YEAR, -3)
+            for (i in 0..14) {
+                val dow = dayOfWeekFormat.format(cal.time).uppercase()
+                val dayNum = cal.get(Calendar.DAY_OF_MONTH)
+                val ds = dateFormat.format(cal.time)
+                list.add(DateItem(dow, dayNum, ds, cal.timeInMillis))
+                cal.add(Calendar.DAY_OF_YEAR, 1)
+            }
+        } catch (e: Exception) {
+            // Fallback if locale or calendar fails
         }
         list
     }
 
     var selectedDateStr by remember {
-        mutableStateOf(dateFormat.format(Calendar.getInstance().time))
+        mutableStateOf(
+            try {
+                SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Calendar.getInstance().time)
+            } catch (e: Exception) {
+                "2026-01-01"
+            }
+        )
     }
 
-    // Filter tasks for selected date
-    val todaysTasks = tasks.filter { task ->
-        dateFormat.format(Date(task.dueAt)) == selectedDateStr
+    // Filter tasks safely for selected date
+    val todaysTasks = remember(tasks, selectedDateStr) {
+        tasks.filter { task ->
+            try {
+                SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date(task.dueAt)) == selectedDateStr
+            } catch (e: Exception) {
+                false
+            }
+        }
     }
-    val upcomingTasks = tasks.filter { task ->
-        task.dueAt > System.currentTimeMillis() && dateFormat.format(Date(task.dueAt)) != selectedDateStr
+    val upcomingTasks = remember(tasks, selectedDateStr) {
+        val now = System.currentTimeMillis()
+        tasks.filter { task ->
+            try {
+                task.dueAt > now && SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date(task.dueAt)) != selectedDateStr
+            } catch (e: Exception) {
+                false
+            }
+        }
     }
 
     Column(

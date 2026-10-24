@@ -349,7 +349,11 @@ private fun saveBitmapToCache(context: Context, bitmap: Bitmap): Uri? {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 85, fos)
         fos.flush()
         fos.close()
-        Uri.fromFile(file)
+        androidx.core.content.FileProvider.getUriForFile(
+            context,
+            "${context.packageName}.fileprovider",
+            file
+        )
     } catch (e: Exception) {
         null
     }
