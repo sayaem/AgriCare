@@ -1,10 +1,13 @@
 package com.example.ui.screens
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -93,6 +96,20 @@ fun DiagnoseEntryScreen(
         }
     }
 
+    val cameraPermissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            cameraLauncher.launch(null)
+        } else {
+            android.widget.Toast.makeText(
+                context,
+                "Camera permission is required to take plant photos. Please enable it in system settings.",
+                android.widget.Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -138,7 +155,15 @@ fun DiagnoseEntryScreen(
                                 .clip(RoundedCornerShape(16.dp))
                                 .background(if (consentGiven) ForestGreenPrimary else ForestGreenPrimary.copy(alpha = 0.4f))
                                 .clickable(enabled = consentGiven) {
-                                    cameraLauncher.launch(null)
+                                    if (ContextCompat.checkSelfPermission(
+                                            context,
+                                            Manifest.permission.CAMERA
+                                        ) == PackageManager.PERMISSION_GRANTED
+                                    ) {
+                                        cameraLauncher.launch(null)
+                                    } else {
+                                        cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
+                                    }
                                 }
                                 .testTag("entry_camera_btn"),
                             contentAlignment = Alignment.Center

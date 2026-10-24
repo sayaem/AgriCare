@@ -48,6 +48,7 @@ class MainActivity : ComponentActivity() {
                             preferencesRepo = preferencesRepo,
                             currentLanguage = userPrefs.language,
                             onboardingCompleted = userPrefs.onboardingCompleted,
+                            isLoaded = userPrefs.isLoaded,
                             onLanguageChange = { newLang ->
                                 coroutineScope.launch {
                                     preferencesRepo.setLanguage(newLang)

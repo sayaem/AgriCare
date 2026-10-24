@@ -46,13 +46,14 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(
+    isLoaded: Boolean,
     onSplashFinished: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val alphaAnim = remember { Animatable(0f) }
     val scaleAnim = remember { Animatable(0.92f) }
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(isLoaded) {
         // Quick, calm brand splash per PRD 6.1 (under 1.3 seconds, no forced long delays)
         alphaAnim.animateTo(
             targetValue = 1f,
@@ -63,6 +64,10 @@ fun SplashScreen(
             animationSpec = tween(durationMillis = 500, easing = FastOutSlowInEasing)
         )
         delay(700)
+        // Ensure preferences have finished loading from DataStore before dismissing splash
+        while (!isLoaded) {
+            delay(50)
+        }
         onSplashFinished()
     }
 

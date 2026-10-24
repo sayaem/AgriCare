@@ -69,6 +69,7 @@ fun AppShell(
     preferencesRepo: AppPreferencesRepository,
     currentLanguage: AppLanguage,
     onboardingCompleted: Boolean,
+    isLoaded: Boolean,
     onLanguageChange: (AppLanguage) -> Unit
 ) {
     val context = LocalContext.current
@@ -150,6 +151,7 @@ fun AppShell(
                 when (destination) {
                     AgriCareDestination.SPLASH -> {
                         SplashScreen(
+                            isLoaded = isLoaded,
                             onSplashFinished = {
                                 if (onboardingCompleted) {
                                     navigateTo(AgriCareDestination.HOME, clearStack = true)

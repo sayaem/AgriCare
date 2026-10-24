@@ -19,7 +19,8 @@ data class UserPreferences(
     val onboardingCompleted: Boolean = false,
     val notificationsEnabled: Boolean = true,
     val aiConsentAccepted: Boolean = false,
-    val retainImagesLocally: Boolean = true
+    val retainImagesLocally: Boolean = true,
+    val isLoaded: Boolean = false
 )
 
 class AppPreferencesRepository(private val context: Context) {
@@ -47,7 +48,8 @@ class AppPreferencesRepository(private val context: Context) {
             onboardingCompleted = onboarding,
             notificationsEnabled = notifications,
             aiConsentAccepted = consent,
-            retainImagesLocally = retainImages
+            retainImagesLocally = retainImages,
+            isLoaded = true
         )
     }
 
